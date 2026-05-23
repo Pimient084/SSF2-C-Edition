@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3b8ghjvwkm9"]
+[gd_scene load_steps=4 format=3 uid="uid://d3b8ghjvwkm9"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterTemplate.cs" id="1_pikachu"]
 [ext_resource type="Script" path="res://Scripts/Animation/AnimationController.cs" id="2_anim"]
