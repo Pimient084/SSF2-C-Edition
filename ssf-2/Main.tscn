@@ -1,40 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2iyy2nhbqwy0"]
+[gd_scene load_steps=3 format=3 uid="uid://c2iyy2nhbqwy0"]
 
 [ext_resource type="Script" path="res://Scripts/Core/GameManager.cs" id="1_gamemanager"]
 [ext_resource type="Script" path="res://Scripts/UI/UIManager.cs" id="2_uimanager"]
-[ext_resource type="PackedScene" uid="uid://bk7y5jvhx39yn" path="res://Scenes/Characters/krystal.tscn" id="3_krystal"]
 
-[sub_resource type="RectangleShape2D" id="1_ground_shape"]
+[sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1280, 20)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gamemanager")
-
-[node name="Background" type="ColorRect" parent="."]
-anchors_rect_changed = true
-offset_right = 1280.0
-offset_bottom = 720.0
-color = Color(0.1, 0.1, 0.15, 1)
 
 [node name="Arena" type="Node2D" parent="."]
 
 [node name="Ground" type="StaticBody2D" parent="Arena"]
 position = Vector2(640, 600)
 
-[node name="VisualGround" type="ColorRect" parent="Arena/Ground"]
-offset_left = -640.0
-offset_top = -10.0
-offset_right = 640.0
-offset_bottom = 10.0
-color = Color(0.3, 0.3, 0.35, 1)
-
 [node name="GroundCollision" type="CollisionShape2D" parent="Arena/Ground"]
-shape = SubResource("1_ground_shape")
+shape = SubResource("1")
 
 [node name="Players" type="Node2D" parent="."]
-
-[node name="KrystalP1" parent="Players" instance=ExtResource("3_krystal")]
-position = Vector2(300, 400)
 
 [node name="UIManager" type="CanvasLayer" parent="."]
 script = ExtResource("2_uimanager")

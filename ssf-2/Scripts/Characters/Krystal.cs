@@ -137,7 +137,6 @@ public partial class Krystal : Character
 		base.TakeDamage(hit, attacker);
 	}
 
-	protected override CharacterState GetCurrentState() => _currentState;
 
 	protected override Rect2 GetAttackHitboxBounds()
 	{

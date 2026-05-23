@@ -65,11 +65,14 @@ public partial class CombatSystem : Node
 		if (hitbox.HasHitThisFrame && !hitbox.HitData.IsMultiHit)
 			return false;
 
-		// Check hitbox bounds vs defender position
-		var defenderBounds = defender.GetNode<Node2D>("Sprite2D")?.GetRect() ?? new Rect2();
-		defenderBounds.Position += defender.GlobalPosition;
+		// Use a fixed hurtbox around the defender's position
+		var hurtbox = new Rect2(
+			defender.GlobalPosition.X - 30,
+			defender.GlobalPosition.Y - 100,
+			60, 100
+		);
 
-		return hitbox.BoundingBox.Intersects(defenderBounds);
+		return hitbox.BoundingBox.Intersects(hurtbox);
 	}
 
 	public void Reset()
