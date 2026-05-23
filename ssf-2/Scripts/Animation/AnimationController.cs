@@ -13,7 +13,12 @@ public partial class AnimationController : Node2D
 
 	public override void _Ready()
 	{
-		_sprite = GetNode<AnimatedSprite2D>("Sprite2D");
+		// Sprite2D is a sibling, not a child
+		_sprite = GetParent().GetNode<AnimatedSprite2D>("Sprite2D");
+		if (_sprite == null)
+		{
+			GD.PrintErr("AnimationController: Could not find Sprite2D node!");
+		}
 	}
 
 	public void InitializeCharacter(string characterName)

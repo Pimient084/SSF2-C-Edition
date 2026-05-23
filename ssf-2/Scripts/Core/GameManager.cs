@@ -33,9 +33,12 @@ public partial class GameManager : Node
 		_combatSystem = new CombatSystem();
 		AddChild(_combatSystem);
 
-		_uiManager = GetNode<UIManager>("UIManager") ?? new UIManager();
-		if (!_uiManager.IsNodeReady())
+		_uiManager = GetNodeOrNull<UIManager>("UIManager");
+		if (_uiManager == null)
+		{
+			_uiManager = new UIManager();
 			AddChild(_uiManager);
+		}
 	}
 
 	private void InitializeMatch()
